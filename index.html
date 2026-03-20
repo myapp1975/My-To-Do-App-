@@ -471,30 +471,43 @@ function setSyncStatus(s){const b=document.getElementById('sync-badge'),l=docume
 document.getElementById('date-badge').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
 
 // ── SUPABASE ──────────────────────────────────────────
-let pendingSave=false; // true while a write is in flight
+let pendingSave=false;
+let localOnly=new Set(); // ids of tasks added locally but not yet confirmed in db
 
 async function dbFetch(){
-  // never interrupt an edit or an in-flight write
   if(detailId!==null||pendingSave) return;
   try{
     setSyncStatus('syncing');
     const r=await fetch(API+'?order=created.desc',{headers:HEADERS});
     if(!r.ok)throw new Error();
-    // one last check — user may have opened detail while we were fetching
     if(detailId!==null||pendingSave) return;
-    tasks=await r.json();
+    const remote=await r.json();
+    // MERGE: keep any local tasks not yet in remote (just added, not yet committed)
+    const remoteIds=new Set(remote.map(t=>t.id));
+    const localPending=tasks.filter(t=>!remoteIds.has(t.id)&&localOnly.has(t.id));
+    tasks=[...localPending,...remote];
     setSyncStatus('online');
+    localStorage.setItem('vtodo_v3',JSON.stringify(tasks));
     render();
   }catch(e){
     setSyncStatus('offline');
-    try{tasks=JSON.parse(localStorage.getItem('vtodo_v3'))||[];}catch(e){tasks=[];}
-    render();toast('Offline — showing local tasks');
+    try{const saved=JSON.parse(localStorage.getItem('vtodo_v3'));if(saved&&saved.length)tasks=saved;}catch(e){}
+    render();
   }
 }
 async function dbInsert(task){
   pendingSave=true;
-  try{setSyncStatus('syncing');const r=await fetch(API,{method:'POST',headers:HEADERS,body:JSON.stringify(task)});if(!r.ok)throw new Error();setSyncStatus('online');}
-  catch(e){setSyncStatus('offline');}
+  localOnly.add(task.id); // mark as local-only until confirmed
+  try{
+    setSyncStatus('syncing');
+    const r=await fetch(API,{method:'POST',headers:HEADERS,body:JSON.stringify(task)});
+    if(!r.ok)throw new Error();
+    localOnly.delete(task.id); // confirmed in db — safe to overwrite on next fetch
+    setSyncStatus('online');
+  }catch(e){
+    setSyncStatus('offline');
+    toast('Saved locally — will sync when online');
+  }
   localStorage.setItem('vtodo_v3',JSON.stringify(tasks));
   pendingSave=false;
 }
