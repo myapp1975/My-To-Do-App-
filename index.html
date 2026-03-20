@@ -471,13 +471,17 @@ function setSyncStatus(s){const b=document.getElementById('sync-badge'),l=docume
 document.getElementById('date-badge').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
 
 // ── SUPABASE ──────────────────────────────────────────
+let pendingSave=false; // true while a write is in flight
+
 async function dbFetch(){
-  // don't interrupt the user if they're editing a task
-  if(detailId!==null) return;
+  // never interrupt an edit or an in-flight write
+  if(detailId!==null||pendingSave) return;
   try{
     setSyncStatus('syncing');
     const r=await fetch(API+'?order=created.desc',{headers:HEADERS});
     if(!r.ok)throw new Error();
+    // one last check — user may have opened detail while we were fetching
+    if(detailId!==null||pendingSave) return;
     tasks=await r.json();
     setSyncStatus('online');
     render();
@@ -488,22 +492,30 @@ async function dbFetch(){
   }
 }
 async function dbInsert(task){
+  pendingSave=true;
   try{setSyncStatus('syncing');const r=await fetch(API,{method:'POST',headers:HEADERS,body:JSON.stringify(task)});if(!r.ok)throw new Error();setSyncStatus('online');}
   catch(e){setSyncStatus('offline');}
   localStorage.setItem('vtodo_v3',JSON.stringify(tasks));
+  pendingSave=false;
 }
 async function dbUpdate(id,changes){
+  pendingSave=true;
   try{setSyncStatus('syncing');const r=await fetch(API+'?id=eq.'+id,{method:'PATCH',headers:HEADERS,body:JSON.stringify(changes)});if(!r.ok)throw new Error();setSyncStatus('online');}
   catch(e){setSyncStatus('offline');}
   localStorage.setItem('vtodo_v3',JSON.stringify(tasks));
+  pendingSave=false;
 }
 async function dbDelete(id){
+  pendingSave=true;
   try{setSyncStatus('syncing');const r=await fetch(API+'?id=eq.'+id,{method:'DELETE',headers:HEADERS});if(!r.ok)throw new Error();setSyncStatus('online');}
   catch(e){setSyncStatus('offline');}
   localStorage.setItem('vtodo_v3',JSON.stringify(tasks));
+  pendingSave=false;
 }
-setInterval(()=>{if(document.visibilityState==='visible')dbFetch();},8000);
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')dbFetch();});
+// poll every 10s — skip if editing or saving
+setInterval(()=>{if(document.visibilityState==='visible'&&!pendingSave)dbFetch();},10000);
+// on tab focus — wait 3s after returning so any pending write can settle first
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')setTimeout(()=>dbFetch(),3000);});
 
 // ── CONFIRM DELETE ────────────────────────────────────
 function confirmDelete(taskText, onConfirm){
@@ -663,7 +675,13 @@ function openDetail(id){
   document.getElementById('detail-overlay').classList.add('open');
   setTimeout(()=>document.getElementById('d-text').focus(),100);
 }
-function closeDetail(){document.getElementById('detail-overlay').classList.remove('open');detailId=null;dbFetch();}
+function closeDetail(){
+  document.getElementById('detail-overlay').classList.remove('open');
+  detailId=null;
+  // wait until any in-flight save completes before syncing
+  const waitAndFetch=()=>{ if(pendingSave){setTimeout(waitAndFetch,300);}else{setTimeout(()=>dbFetch(),500);} };
+  waitAndFetch();
+}
 
 document.querySelectorAll('.pri-opt').forEach(btn=>{btn.onclick=()=>{detailPri=btn.dataset.pri;document.querySelectorAll('.pri-opt').forEach(b=>b.className='pri-opt');btn.classList.add('sel-'+detailPri);};});
 document.querySelectorAll('.date-sc').forEach(btn=>{btn.onclick=()=>{const days=parseInt(btn.dataset.days);if(days===-1){document.getElementById('d-due').value='';return;}const d=new Date();d.setDate(d.getDate()+days);document.getElementById('d-due').value=d.toISOString().split('T')[0];};});
