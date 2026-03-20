@@ -28,6 +28,7 @@
 html,body{min-height:100dvh;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overscroll-behavior:none}
 #app{max-width:500px;margin:0 auto;padding:calc(var(--safe-top) + 24px) 18px calc(var(--safe-bottom) + 80px)}
 
+/* HEADER */
 .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
 h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,7vw,38px);font-weight:400;line-height:1.1;letter-spacing:-0.5px}
 h1 em{font-style:italic;color:var(--accent)}
@@ -36,6 +37,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .notif-btn{background:transparent;border:0.5px solid var(--border);border-radius:20px;padding:4px 11px;font-size:11px;color:var(--text3);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
 .notif-btn.on{border-color:var(--accent);color:var(--accent)}
 
+/* STATS */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
 .stat-card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 8px;text-align:center;transition:all .2s}
 .stat-card.hl{border-color:var(--accent);background:var(--accent-bg)}
@@ -43,6 +45,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .stat-card.hl .stat-num{color:var(--accent)}
 .stat-lbl{font-size:10px;color:var(--text2);letter-spacing:.5px;text-transform:uppercase}
 
+/* MIC */
 .mic-section{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:22px}
 #mic-btn{width:76px;height:76px;border-radius:50%;border:1.5px solid var(--border2);background:var(--surface);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);outline:none;-webkit-user-select:none;user-select:none}
 #mic-btn:hover{transform:scale(1.05);border-color:var(--accent)}
@@ -64,6 +67,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .live-transcript.visible{display:block}
 .live-transcript .ft{color:var(--text);font-style:normal}
 
+/* COMMANDS */
 .commands-panel{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:16px;display:none}
 .commands-panel.visible{display:block}
 .commands-title{font-size:10px;color:var(--text3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
@@ -71,6 +75,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .cmd{font-size:11px;color:var(--text2);line-height:1.7}
 .cmd span{color:var(--accent);font-style:italic}
 
+/* INPUT */
 .input-row{display:flex;gap:8px;margin-bottom:16px}
 #task-input{flex:1;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:11px 14px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:300;color:var(--text);outline:none;transition:border-color .2s}
 #task-input::placeholder{color:var(--text3)}
@@ -79,14 +84,16 @@ h1 em{font-style:italic;color:var(--accent)}
 #add-btn:hover{opacity:.85}
 #add-btn:active{transform:scale(.95)}
 
+/* SEARCH */
 .search-row{position:relative;margin-bottom:16px;display:none}
 .search-row.visible{display:block}
-#search-input{width:100%;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 36px 10px 36px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:300;color:var(--text);outline:none}
+#search-input{width:100%;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:10px 36px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:300;color:var(--text);outline:none}
 #search-input::placeholder{color:var(--text3)}
 #search-input:focus{border-color:var(--border2)}
 .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none}
 .search-clear{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:transparent;border:none;color:var(--text3);cursor:pointer;font-size:16px;padding:2px 4px;line-height:1}
 
+/* TOOLBAR */
 .toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px;flex-wrap:wrap}
 .filter-row{display:flex;gap:6px;flex-wrap:wrap}
 .filter-btn{padding:5px 12px;border-radius:20px;border:0.5px solid var(--border);background:transparent;font-size:11px;font-family:'DM Sans',sans-serif;font-weight:300;cursor:pointer;color:var(--text2);transition:all .15s}
@@ -96,6 +103,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .icon-btn:hover{border-color:var(--border2);color:var(--text)}
 .sort-select{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-xs);padding:5px 8px;font-size:11px;font-family:'DM Sans',sans-serif;color:var(--text2);outline:none;cursor:pointer}
 
+/* BADGES */
 .pri{display:inline-flex;align-items:center;font-size:10px;padding:2px 7px;border-radius:10px;letter-spacing:.3px;flex-shrink:0}
 .pri.urgent{background:var(--red-bg);color:#e07060;border:0.5px solid rgba(192,97,74,.25)}
 .pri.low{background:var(--surface2);color:var(--text3);border:0.5px solid var(--border)}
@@ -104,7 +112,9 @@ h1 em{font-style:italic;color:var(--accent)}
 .due-badge.today{background:var(--amber-bg);color:#d4a840;border:0.5px solid rgba(196,154,60,.25)}
 .due-badge.soon{background:var(--blue-bg);color:#6aadd4;border:0.5px solid rgba(74,143,192,.25)}
 .due-badge.later{background:var(--surface2);color:var(--text3);border:0.5px solid var(--border)}
+.cat-badge{display:inline-flex;align-items:center;font-size:10px;padding:2px 7px;border-radius:10px;background:var(--surface2);color:var(--text2);border:0.5px solid var(--border);flex-shrink:0}
 
+/* TASK LIST */
 .task-list{display:flex;flex-direction:column;gap:7px}
 .task-item{position:relative;display:flex;align-items:flex-start;background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);transition:border-color .2s,opacity .2s;animation:slideIn .22s cubic-bezier(.34,1.56,.64,1);overflow:hidden}
 @keyframes slideIn{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -114,20 +124,16 @@ h1 em{font-style:italic;color:var(--accent)}
 .task-item.drag-over{border-color:var(--accent);background:var(--accent-dark)}
 .task-item.removing{animation:slideOut .2s ease forwards}
 @keyframes slideOut{to{opacity:0;transform:translateX(30px);max-height:0;padding:0;margin:0;border-width:0}}
-
 .swipe-bg{position:absolute;inset:0;display:flex;align-items:center;padding:0 18px;font-size:11px;font-weight:500;letter-spacing:.3px;pointer-events:none;opacity:0;transition:opacity .1s}
 .swipe-bg.left{background:var(--red-bg);color:#e07060;justify-content:flex-end}
 .swipe-bg.right{background:var(--green-bg);color:#6abf94;justify-content:flex-start}
 .task-inner{display:flex;align-items:flex-start;gap:10px;width:100%;position:relative;z-index:1;padding:13px 14px;transition:transform .05s}
-
 .task-check{width:21px;height:21px;border-radius:50%;border:1.5px solid var(--border2);background:transparent;cursor:pointer;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.56,.64,1)}
 .task-check:hover{border-color:var(--green)}
 .task-check.checked{background:var(--green);border-color:var(--green)}
 .task-check.checked::after{content:'';width:5px;height:9px;border:2px solid white;border-top:none;border-left:none;transform:rotate(45deg) translateY(-1px);display:block}
-
 .drag-handle{color:var(--text4);font-size:13px;cursor:grab;flex-shrink:0;margin-top:2px;padding:0 2px;line-height:1;user-select:none}
 .drag-handle:active{cursor:grabbing}
-
 .task-body{flex:1;min-width:0}
 .task-top{display:flex;align-items:flex-start;gap:5px;flex-wrap:wrap;margin-bottom:3px}
 .task-text{font-size:14px;color:var(--text);line-height:1.5;word-break:break-word;font-weight:300;cursor:pointer;flex:1;min-width:120px}
@@ -139,13 +145,25 @@ h1 em{font-style:italic;color:var(--accent)}
 .task-btn{width:26px;height:26px;border:none;background:transparent;cursor:pointer;color:var(--text3);font-size:14px;display:flex;align-items:center;justify-content:center;border-radius:5px;transition:all .15s;line-height:1}
 .task-btn.edit:hover{color:var(--accent);background:var(--accent-bg)}
 .task-btn.del:hover{color:var(--red);background:var(--red-bg)}
-.task-text-input{width:100%;background:var(--surface2);border:0.5px solid var(--accent);border-radius:5px;padding:3px 7px;font-size:14px;font-family:'DM Sans',sans-serif;font-weight:300;color:var(--text);outline:none;line-height:1.5;resize:none}
-.task-edit-hint{font-size:10px;color:var(--accent);margin-top:4px;opacity:.7}
 
-/* ── TASK DETAIL PANEL ── */
+/* EMPTY */
+.empty-state{text-align:center;padding:44px 20px;color:var(--text3)}
+.empty-icon{font-size:36px;margin-bottom:10px;opacity:.4}
+.empty-text{font-size:13px;line-height:1.7}
+.no-speech-banner{background:var(--red-bg);border:0.5px solid rgba(192,97,74,.3);border-radius:var(--radius-sm);padding:11px 14px;font-size:12px;color:#e07060;margin-bottom:16px;display:none;line-height:1.5}
+
+/* BOTTOM BAR */
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(15,15,15,.93);backdrop-filter:blur(14px);border-top:0.5px solid var(--border);padding:10px 18px calc(var(--safe-bottom) + 10px);display:flex;align-items:center;justify-content:space-between;gap:10px;z-index:50}
+.bar-btn{background:transparent;border:0.5px solid var(--border);border-radius:var(--radius-xs);padding:7px 12px;font-size:12px;color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap}
+.bar-btn:hover{border-color:var(--border2);color:var(--text)}
+.bar-btn.danger:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
+.swipe-hint{font-size:10px;color:var(--text4);text-align:right;line-height:1.6}
+
+/* TASK DETAIL PANEL */
 .detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;display:none;align-items:flex-end;justify-content:center}
 .detail-overlay.open{display:flex}
-.detail-panel{background:var(--surface);border:0.5px solid var(--border2);border-radius:var(--radius) var(--radius) 0 0;padding:0;width:100%;max-width:500px;animation:slideUp .25s ease;max-height:92dvh;overflow-y:auto}
+.detail-panel{background:var(--surface);border:0.5px solid var(--border2);border-radius:var(--radius) var(--radius) 0 0;width:100%;max-width:500px;animation:slideUp .25s ease;max-height:92dvh;overflow-y:auto}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .detail-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:12px auto 0}
 .detail-header{padding:16px 20px 12px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .detail-title{font-family:'DM Serif Display',serif;font-size:18px;font-weight:400}
@@ -166,8 +184,8 @@ h1 em{font-style:italic;color:var(--accent)}
 .pri-opt{flex:1;padding:9px 8px;border-radius:var(--radius-sm);border:0.5px solid var(--border);background:transparent;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:center;transition:all .15s;color:var(--text2)}
 .pri-opt:hover{border-color:var(--border2)}
 .pri-opt.sel-urgent{background:var(--red-bg);border-color:rgba(192,97,74,.5);color:#e07060}
-.pri-opt.sel-normal{background:var(--amber-bg);border-color:rgba(196,154,60,.4);color:#d4a840}
-.pri-opt.sel-low{background:var(--surface2);border-color:var(--border2);color:var(--text2)}
+.pri-opt.sel-normal{background:var(--surface2);border-color:var(--border2);color:var(--text2)}
+.pri-opt.sel-low{background:var(--surface2);border-color:var(--border2);color:var(--text3)}
 .cat-options{display:flex;gap:6px;flex-wrap:wrap}
 .cat-opt{padding:5px 12px;border-radius:20px;border:0.5px solid var(--border);background:transparent;font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;color:var(--text2);transition:all .15s}
 .cat-opt:hover{border-color:var(--border2)}
@@ -192,23 +210,11 @@ h1 em{font-style:italic;color:var(--accent)}
 .detail-save:active{transform:scale(.98)}
 .detail-delete{background:transparent;border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:13px 16px;font-size:13px;color:var(--text3);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
 .detail-delete:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
-.cat-badge{display:inline-flex;align-items:center;font-size:10px;padding:2px 7px;border-radius:10px;background:var(--surface2);color:var(--text2);border:0.5px solid var(--border);flex-shrink:0}
 
-.empty-state{text-align:center;padding:44px 20px;color:var(--text3)}
-.empty-icon{font-size:36px;margin-bottom:10px;opacity:.4}
-.empty-text{font-size:13px;line-height:1.7}
-.no-speech-banner{background:var(--red-bg);border:0.5px solid rgba(192,97,74,.3);border-radius:var(--radius-sm);padding:11px 14px;font-size:12px;color:#e07060;margin-bottom:16px;display:none;line-height:1.5}
-
-.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(15,15,15,.93);backdrop-filter:blur(14px);border-top:0.5px solid var(--border);padding:10px 18px calc(var(--safe-bottom) + 10px);display:flex;align-items:center;justify-content:space-between;gap:10px;z-index:50}
-.bar-btn{background:transparent;border:0.5px solid var(--border);border-radius:var(--radius-xs);padding:7px 12px;font-size:12px;color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap}
-.bar-btn:hover{border-color:var(--border2);color:var(--text)}
-.bar-btn.danger:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
-.swipe-hint{font-size:10px;color:var(--text4);text-align:right;line-height:1.6}
-
+/* EXPORT MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:300;display:none;align-items:flex-end;justify-content:center}
 .modal-overlay.open{display:flex}
 .modal{background:var(--surface);border:0.5px solid var(--border2);border-radius:var(--radius) var(--radius) 0 0;padding:24px 20px calc(var(--safe-bottom) + 24px);width:100%;max-width:500px;animation:slideUp .25s ease}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .modal-title{font-family:'DM Serif Display',serif;font-size:20px;margin-bottom:16px}
 .export-options{display:flex;flex-direction:column;gap:8px}
 .export-opt{background:var(--surface2);border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:13px 16px;cursor:pointer;transition:all .15s;display:flex;justify-content:space-between;align-items:center}
@@ -218,6 +224,7 @@ h1 em{font-style:italic;color:var(--accent)}
 .modal-close{margin-top:14px;width:100%;background:transparent;border:0.5px solid var(--border);border-radius:var(--radius-sm);padding:12px;font-size:13px;color:var(--text2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
 .modal-close:hover{border-color:var(--border2);color:var(--text)}
 
+/* TOAST */
 .toast{position:fixed;bottom:calc(var(--safe-bottom) + 72px);left:50%;transform:translateX(-50%) translateY(12px);background:var(--surface3);border:0.5px solid var(--border2);border-radius:20px;padding:8px 18px;font-size:12px;color:var(--text);opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap;z-index:400}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 ::-webkit-scrollbar{width:3px}
@@ -319,19 +326,17 @@ h1 em{font-style:italic;color:var(--accent)}
 
 <!-- Task detail panel -->
 <div class="detail-overlay" id="detail-overlay">
-  <div class="detail-panel" id="detail-panel">
+  <div class="detail-panel">
     <div class="detail-handle"></div>
     <div class="detail-header">
       <div class="detail-title">Edit task</div>
       <button class="detail-close" id="detail-close">×</button>
     </div>
     <div class="detail-body">
-
       <div class="detail-field">
         <label class="detail-label">Task</label>
         <textarea class="detail-input" id="d-text" rows="2" placeholder="Task description…"></textarea>
       </div>
-
       <div class="detail-field">
         <label class="detail-label">Priority</label>
         <div class="pri-options">
@@ -340,7 +345,6 @@ h1 em{font-style:italic;color:var(--accent)}
           <button class="pri-opt" data-pri="low">↓ Low</button>
         </div>
       </div>
-
       <div class="detail-field">
         <label class="detail-label">Due date</label>
         <input type="date" class="detail-date-input" id="d-due"/>
@@ -352,45 +356,23 @@ h1 em{font-style:italic;color:var(--accent)}
           <button class="date-sc" data-days="-1">Clear</button>
         </div>
       </div>
-
       <div class="detail-field">
         <label class="detail-label">Category</label>
-        <div class="cat-options" id="cat-options">
-          <button class="cat-opt" data-cat="">None</button>
-          <button class="cat-opt" data-cat="Work">Work</button>
-          <button class="cat-opt" data-cat="Personal">Personal</button>
-          <button class="cat-opt" data-cat="Shopping">Shopping</button>
-          <button class="cat-opt" data-cat="Health">Health</button>
-          <button class="cat-opt" data-cat="Finance">Finance</button>
-        </div>
+        <div class="cat-options" id="cat-options"></div>
         <div class="cat-custom-row">
           <input type="text" class="cat-custom-input" id="cat-custom-input" placeholder="custom category…" maxlength="24"/>
           <button class="cat-add-btn" id="cat-add-btn">+ add</button>
         </div>
       </div>
-
       <div class="detail-field">
         <label class="detail-label">Reminder</label>
         <div class="notif-options">
-          <div class="notif-opt" data-notif="none">
-            <div><div class="notif-opt-label">No reminder</div></div>
-            <div class="notif-dot"></div>
-          </div>
-          <div class="notif-opt" data-notif="due">
-            <div><div class="notif-opt-label">On due date</div><div class="notif-opt-desc">Notified at 9am on the due date</div></div>
-            <div class="notif-dot"></div>
-          </div>
-          <div class="notif-opt" data-notif="day-before">
-            <div><div class="notif-opt-label">Day before</div><div class="notif-opt-desc">Notified at 9am the day before</div></div>
-            <div class="notif-dot"></div>
-          </div>
-          <div class="notif-opt" data-notif="week-before">
-            <div><div class="notif-opt-label">Week before</div><div class="notif-opt-desc">Notified at 9am one week before</div></div>
-            <div class="notif-dot"></div>
-          </div>
+          <div class="notif-opt" data-notif="none"><div><div class="notif-opt-label">No reminder</div></div><div class="notif-dot"></div></div>
+          <div class="notif-opt" data-notif="due"><div><div class="notif-opt-label">On due date</div><div class="notif-opt-desc">Notified at 9am on the due date</div></div><div class="notif-dot"></div></div>
+          <div class="notif-opt" data-notif="day-before"><div><div class="notif-opt-label">Day before</div><div class="notif-opt-desc">Notified at 9am the day before</div></div><div class="notif-dot"></div></div>
+          <div class="notif-opt" data-notif="week-before"><div><div class="notif-opt-label">Week before</div><div class="notif-opt-desc">Notified at 9am one week before</div></div><div class="notif-dot"></div></div>
         </div>
       </div>
-
     </div>
     <div class="detail-footer">
       <button class="detail-save" id="detail-save">Save changes</button>
@@ -399,6 +381,7 @@ h1 em{font-style:italic;color:var(--accent)}
   </div>
 </div>
 
+<!-- Export modal -->
 <div class="modal-overlay" id="export-modal">
   <div class="modal">
     <div class="modal-title">Export your list</div>
@@ -407,7 +390,6 @@ h1 em{font-style:italic;color:var(--accent)}
       <div class="export-opt" id="export-share"><div><div class="export-opt-name">Share</div><div class="export-opt-desc">Use your device's share sheet</div></div><span style="font-size:18px">↗️</span></div>
       <div class="export-opt" id="export-markdown"><div><div class="export-opt-name">Copy as Markdown</div><div class="export-opt-desc">Checklist format for Notion, Obsidian, etc.</div></div><span style="font-size:18px">📝</span></div>
       <div class="export-opt" id="export-json"><div><div class="export-opt-name">Download JSON backup</div><div class="export-opt-desc">Full backup you can restore later</div></div><span style="font-size:18px">💾</span></div>
-      <div class="export-opt" id="view-corrections"><div><div class="export-opt-name">View speech memory</div><div class="export-opt-desc">See & clear your learned corrections</div></div><span style="font-size:18px">🧠</span></div>
     </div>
     <button class="modal-close" id="modal-close">cancel</button>
   </div>
@@ -415,81 +397,18 @@ h1 em{font-style:italic;color:var(--accent)}
 
 <div class="toast" id="toast"></div>
 
-<div class="modal-overlay" id="corrections-modal">
-  <div class="modal">
-    <div class="modal-title">Speech Memory</div>
-    <div id="corrections-list" style="margin-bottom:14px;font-size:13px;color:var(--text2);line-height:1.8;max-height:240px;overflow-y:auto"></div>
-    <button class="bar-btn danger" id="clear-corrections-btn" style="width:100%;padding:10px;margin-bottom:8px;border-radius:var(--radius-sm)">clear all corrections</button>
-    <button class="modal-close" id="corrections-close">done</button>
-  </div>
-</div>
-  <div class="modal">
-    <div class="modal-title">Speech Memory</div>
-    <div id="corrections-list" style="margin-bottom:14px;font-size:13px;color:var(--text2);line-height:1.8;max-height:240px;overflow-y:auto"></div>
-    <button class="bar-btn danger" id="clear-corrections-btn" style="width:100%;padding:10px;margin-bottom:8px;border-radius:var(--radius-sm)">clear all corrections</button>
-    <button class="modal-close" id="corrections-close">done</button>
-  </div>
-</div>
-
 <script>
 const STORAGE_KEY='vtodo_v3';
-const CORRECTIONS_KEY='vtodo_corrections_v1';
 let tasks=[],filter='all',sortBy='created',searchQ='',undoStack=[];
 let recognition=null,listening=false,continuousMode=false;
 let silenceTimer=null,lastFinal='',showCommands=false;
 let dragSrc=null,notifEnabled=false;
-let corrections={}; // { "heard_word": "correct_word", ... }
+let detailId=null,detailPri='normal',detailNotif='none',detailCat='';
+const PRESET_CATS=['','Work','Personal','Shopping','Health','Finance'];
 
-function load(){try{tasks=JSON.parse(localStorage.getItem(STORAGE_KEY))||[];}catch(e){tasks=[];}loadCorrections();render();}
+function load(){try{tasks=JSON.parse(localStorage.getItem(STORAGE_KEY))||[];}catch(e){tasks=[];}render();}
 function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(tasks));}
-
-// ── CORRECTION MEMORY ─────────────────────────────────
-function loadCorrections(){
-  try{corrections=JSON.parse(localStorage.getItem(CORRECTIONS_KEY))||{};}catch(e){corrections={};}
-}
-function saveCorrections(){
-  localStorage.setItem(CORRECTIONS_KEY,JSON.stringify(corrections));
-}
-
-// Apply known corrections to a raw transcript before saving
-function applyCorrections(text){
-  let words=text.split(/(\s+)/);
-  let changed=false;
-  words=words.map(w=>{
-    const key=w.toLowerCase().replace(/[^a-z']/g,'');
-    if(corrections[key]){
-      // preserve capitalisation
-      const fix=corrections[key];
-      changed=true;
-      return w[0]===w[0].toUpperCase()&&w[0]!==w[0].toLowerCase()?fix[0].toUpperCase()+fix.slice(1):fix;
-    }
-    return w;
-  });
-  if(changed) toast('Auto-corrected using your speech memory ✓');
-  return words.join('');
-}
-
-// Learn substitutions by diffing original heard text vs edited text
-function learnFromEdit(heard, corrected){
-  if(!heard||!corrected||heard===corrected) return;
-  const hw=heard.toLowerCase().trim().split(/\s+/);
-  const cw=corrected.toLowerCase().trim().split(/\s+/);
-  // Simple word-level diff — find single-word substitutions at same positions
-  let learned=0;
-  const len=Math.min(hw.length,cw.length);
-  for(let i=0;i<len;i++){
-    const h=hw[i].replace(/[^a-z']/g,'');
-    const c=cw[i].replace(/[^a-z']/g,'');
-    if(h&&c&&h!==c&&h.length>1&&c.length>1){
-      corrections[h]=c;
-      learned++;
-    }
-  }
-  if(learned>0){
-    saveCorrections();
-    toast(`Remembered ${learned} correction${learned>1?'s':''} — will auto-fix next time`);
-  }
-}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),2400);}
 
 document.getElementById('date-badge').textContent=new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
 
@@ -514,9 +433,7 @@ function parseDate(text){
   if(t.includes('next week')) return d(7);
   if(t.includes('weekend')||t.includes('this weekend')){const diff=(6-today.getDay()+7)%7||7;return d(diff);}
   if(t.includes('end of week')){const diff=(5-today.getDay()+7)%7||7;return d(diff);}
-  for(let i=0;i<days.length;i++){
-    if(t.includes(days[i])){let diff=(i-today.getDay()+7)%7;if(diff===0)diff=7;return d(diff);}
-  }
+  for(let i=0;i<days.length;i++){if(t.includes(days[i])){let diff=(i-today.getDay()+7)%7;if(diff===0)diff=7;return d(diff);}}
   const inM=t.match(/in (\d+) (day|week)/);
   if(inM) return d(inM[2]==='week'?inM[1]*7:inM[1]*1);
   const dateM=t.match(/by (?:the )?(\d{1,2})(?:st|nd|rd|th)?(?!\s*\w)/);
@@ -539,78 +456,71 @@ function formatDue(dateStr){
 }
 
 // ── TASK CRUD ─────────────────────────────────────────
-function addTask(raw, fromVoice=false){
+function addTask(raw){
   raw=raw.trim();if(!raw)return;
-  const heard=fromVoice?raw:null; // store original for learning
-  if(fromVoice) raw=applyCorrections(raw);
   const priority=detectPriority(raw);
   let text=stripPriorityPrefix(raw);
   const due=parseDate(text);
   text=stripDatePhrase(text);
   if(!text)return;
-  const task={id:Date.now(),text,done:false,priority,due:due?due.toISOString().split('T')[0]:null,created:Date.now(),heard,time:new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}),date:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short'})};
+  const task={id:Date.now(),text,done:false,priority,due:due?due.toISOString().split('T')[0]:null,category:null,notif:'none',created:Date.now(),time:new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}),date:new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short'})};
   tasks.unshift(task);save();render();
   document.getElementById('task-input').value='';
-  scheduleNotif(task);
+  scheduleTaskNotif(task);
   if(due) toast(`Added${priority!=='normal'?' ['+priority+']':''} · due ${formatDue(task.due).label}`);
   else if(priority!=='normal') toast(`Added as ${priority} priority`);
 }
+
 function toggleTask(id){const t=tasks.find(t=>t.id===id);if(t){t.done=!t.done;save();render();}}
-function deleteTask(id,pushUndo=true){
+
+function deleteTask(id){
   const t=tasks.find(t=>t.id===id);
-  if(t&&pushUndo){undoStack.push({...t});if(undoStack.length>10)undoStack.shift();}
+  if(t){undoStack.push({...t});if(undoStack.length>10)undoStack.shift();}
   const el=document.querySelector(`[data-id="${id}"]`);
   if(el){el.classList.add('removing');setTimeout(()=>{tasks=tasks.filter(t=>t.id!==id);save();render();},200);}
   else{tasks=tasks.filter(t=>t.id!==id);save();render();}
 }
-// ── TASK DETAIL PANEL ────────────────────────────────
-const PRESET_CATS=['','Work','Personal','Shopping','Health','Finance'];
-let detailId=null, detailPri='normal', detailNotif='none', detailCat='';
 
+function clearDone(){tasks=tasks.filter(t=>!t.done);save();render();toast('Cleared completed tasks');}
+
+// ── TASK DETAIL PANEL ─────────────────────────────────
 function openDetail(id){
   const t=tasks.find(t=>t.id===id);if(!t)return;
-  detailId=id; detailPri=t.priority||'normal'; detailNotif=t.notif||'none'; detailCat=t.category||'';
-
+  detailId=id;detailPri=t.priority||'normal';detailNotif=t.notif||'none';detailCat=t.category||'';
   document.getElementById('d-text').value=t.text;
   document.getElementById('d-due').value=t.due||'';
 
-  // priority
   document.querySelectorAll('.pri-opt').forEach(b=>{
     b.className='pri-opt';
-    if(b.dataset.pri===detailPri) b.classList.add('sel-'+detailPri);
+    if(b.dataset.pri===detailPri)b.classList.add('sel-'+detailPri);
   });
 
-  // categories — rebuild to include any custom ones
   const allCats=[...new Set([...PRESET_CATS,...tasks.filter(t=>t.category).map(t=>t.category)])];
   const catOpts=document.getElementById('cat-options');
   catOpts.innerHTML='';
   allCats.forEach(c=>{
     const btn=document.createElement('button');
     btn.className='cat-opt'+(c===detailCat?' sel':'');
-    btn.dataset.cat=c; btn.textContent=c||'None';
+    btn.dataset.cat=c;btn.textContent=c||'None';
     btn.onclick=()=>{detailCat=c;catOpts.querySelectorAll('.cat-opt').forEach(b=>b.classList.toggle('sel',b.dataset.cat===c));};
     catOpts.appendChild(btn);
   });
 
-  // notif
-  document.querySelectorAll('.notif-opt').forEach(o=>{o.classList.toggle('sel',o.dataset.notif===detailNotif);});
-
+  document.querySelectorAll('.notif-opt').forEach(o=>o.classList.toggle('sel',o.dataset.notif===detailNotif));
   document.getElementById('detail-overlay').classList.add('open');
-  document.getElementById('d-text').focus();
+  setTimeout(()=>document.getElementById('d-text').focus(),100);
 }
 
 function closeDetail(){document.getElementById('detail-overlay').classList.remove('open');detailId=null;}
 
-// Pri options
 document.querySelectorAll('.pri-opt').forEach(btn=>{
   btn.onclick=()=>{
     detailPri=btn.dataset.pri;
-    document.querySelectorAll('.pri-opt').forEach(b=>{b.className='pri-opt';});
+    document.querySelectorAll('.pri-opt').forEach(b=>b.className='pri-opt');
     btn.classList.add('sel-'+detailPri);
   };
 });
 
-// Date shortcuts
 document.querySelectorAll('.date-sc').forEach(btn=>{
   btn.onclick=()=>{
     const days=parseInt(btn.dataset.days);
@@ -620,7 +530,6 @@ document.querySelectorAll('.date-sc').forEach(btn=>{
   };
 });
 
-// Notif options
 document.querySelectorAll('.notif-opt').forEach(o=>{
   o.onclick=async()=>{
     const val=o.dataset.notif;
@@ -637,13 +546,11 @@ document.querySelectorAll('.notif-opt').forEach(o=>{
   };
 });
 
-// Custom category
 document.getElementById('cat-add-btn').onclick=()=>{
   const val=document.getElementById('cat-custom-input').value.trim();
   if(!val)return;
   detailCat=val;
   document.getElementById('cat-custom-input').value='';
-  // add to options
   const catOpts=document.getElementById('cat-options');
   const existing=[...catOpts.querySelectorAll('.cat-opt')].find(b=>b.dataset.cat===val);
   if(!existing){
@@ -655,30 +562,23 @@ document.getElementById('cat-add-btn').onclick=()=>{
 };
 document.getElementById('cat-custom-input').onkeydown=e=>{if(e.key==='Enter')document.getElementById('cat-add-btn').click();};
 
-// Save
 document.getElementById('detail-save').onclick=()=>{
   const t=tasks.find(t=>t.id===detailId);if(!t)return;
   const newText=document.getElementById('d-text').value.trim();
   const newDue=document.getElementById('d-due').value||null;
-  if(newText&&newText!==t.text){if(t.heard)learnFromEdit(t.heard,newText);else learnFromEdit(t.text,newText);}
-  if(newText) t.text=newText;
+  if(newText)t.text=newText;
   t.priority=detailPri;
   t.due=newDue;
   t.category=detailCat||null;
   t.notif=detailNotif;
   save();render();closeDetail();
   toast('Task updated');
-  if(t.due) scheduleTaskNotif(t);
+  scheduleTaskNotif(t);
 };
 
-// Delete from panel
 document.getElementById('detail-delete').onclick=()=>{deleteTask(detailId);closeDetail();};
-
-// Close
 document.getElementById('detail-close').onclick=closeDetail;
 document.getElementById('detail-overlay').addEventListener('click',e=>{if(e.target===document.getElementById('detail-overlay'))closeDetail();});
-
-function editTask(id){openDetail(id);}
 
 // ── RENDER ────────────────────────────────────────────
 function getSorted(list){
@@ -691,7 +591,8 @@ function getSorted(list){
 function setFilter(f){filter=f;document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.dataset.filter===f));render();}
 
 function render(){
-  const total=tasks.length,done=tasks.filter(t=>t.done).length,open=total-done,urgent=tasks.filter(t=>!t.done&&t.priority==='urgent').length;
+  const total=tasks.length,done=tasks.filter(t=>t.done).length,open=total-done;
+  const urgent=tasks.filter(t=>!t.done&&t.priority==='urgent').length;
   document.getElementById('stat-total').textContent=total;
   document.getElementById('stat-open').textContent=open;
   document.getElementById('stat-done').textContent=done;
@@ -700,10 +601,9 @@ function render(){
   document.getElementById('sc-urgent').classList.toggle('hl',urgent>0);
   document.getElementById('sc-done').classList.toggle('hl',done>0&&filter==='done');
 
-  // dynamic category filter pills
+  // dynamic category pills
   const usedCats=[...new Set(tasks.filter(t=>t.category).map(t=>t.category))];
   const filterRow=document.querySelector('.filter-row');
-  // remove old cat pills
   filterRow.querySelectorAll('.cat-filter-pill').forEach(p=>p.remove());
   usedCats.forEach(cat=>{
     const btn=document.createElement('button');
@@ -727,7 +627,7 @@ function render(){
   list.innerHTML='';
   if(!visible.length){
     const msgs={all:'No tasks yet.<br/>Tap the mic and speak one into existence.',open:'All caught up!',done:'Nothing completed yet.',urgent:'No urgent tasks.'};
-    list.innerHTML=`<div class="empty-state"><div class="empty-icon">✦</div><div class="empty-text">${searchQ?`No results for "${searchQ}"`:msgs[filter]}</div></div>`;
+    list.innerHTML=`<div class="empty-state"><div class="empty-icon">✦</div><div class="empty-text">${searchQ?`No results for "${searchQ}"`:msgs[filter]||'No tasks here.'}</div></div>`;
     return;
   }
 
@@ -741,7 +641,6 @@ function render(){
     item.append(swL,swR);
 
     const inner=document.createElement('div');inner.className='task-inner';
-
     const dh=document.createElement('div');dh.className='drag-handle';dh.innerHTML='⠿';dh.title='drag to reorder';
     inner.appendChild(dh);
 
@@ -750,7 +649,7 @@ function render(){
 
     const body=document.createElement('div');body.className='task-body';
     const top=document.createElement('div');top.className='task-top';
-    const txt=document.createElement('div');txt.className='task-text';txt.textContent=t.text;txt.title='tap to edit';txt.onclick=()=>editTask(t.id);
+    const txt=document.createElement('div');txt.className='task-text';txt.textContent=t.text;txt.title='tap to edit';txt.onclick=()=>openDetail(t.id);
     top.appendChild(txt);
     if(t.priority==='urgent'){const pb=document.createElement('span');pb.className='pri urgent';pb.textContent='⚡ urgent';top.appendChild(pb);}
     else if(t.priority==='low'){const pb=document.createElement('span');pb.className='pri low';pb.textContent='low';top.appendChild(pb);}
@@ -766,11 +665,10 @@ function render(){
     inner.appendChild(body);
 
     const acts=document.createElement('div');acts.className='task-actions';
-    const eb=document.createElement('button');eb.className='task-btn edit';eb.innerHTML='✎';eb.title='edit';eb.onclick=()=>editTask(t.id);
+    const eb=document.createElement('button');eb.className='task-btn edit';eb.innerHTML='✎';eb.title='edit';eb.onclick=()=>openDetail(t.id);
     const db=document.createElement('button');db.className='task-btn del';db.innerHTML='×';db.title='delete';db.onclick=()=>deleteTask(t.id);
     acts.append(eb,db);inner.appendChild(acts);
     item.appendChild(inner);
-
     setupSwipe(item,t);
     setupDrag(item);
     list.appendChild(item);
@@ -869,7 +767,7 @@ if(SR){
       const toAdd=lastFinal||interim;
       if(toAdd.trim()){
         const isCmd=handleCommand(toAdd);
-        if(!isCmd){addTask(toAdd,true);setHint('✓ added!','success');setTimeout(()=>setHint(continuousMode?'speak your next task...':'tap mic to speak a task',continuousMode?'active':''),1600);}
+        if(!isCmd){addTask(toAdd);setHint('✓ added!','success');setTimeout(()=>setHint(continuousMode?'speak your next task...':'tap mic to speak a task',continuousMode?'active':''),1600);}
         lastFinal='';liveEl.innerHTML='';
         if(!continuousMode)recognition.stop();
       }
@@ -902,28 +800,25 @@ function stopListening(){
 }
 
 // ── NOTIFICATIONS ─────────────────────────────────────
-const notifBtn=document.getElementById('notif-btn');
-notifBtn.onclick=async()=>{
+document.getElementById('notif-btn').onclick=async()=>{
   if(!('Notification'in window)){toast('Notifications not supported');return;}
-  if(notifEnabled){notifEnabled=false;notifBtn.textContent='🔔 reminders off';notifBtn.classList.remove('on');toast('Reminders off');return;}
+  if(notifEnabled){notifEnabled=false;document.getElementById('notif-btn').textContent='🔔 reminders off';document.getElementById('notif-btn').classList.remove('on');toast('Reminders off');return;}
   const p=await Notification.requestPermission();
-  if(p==='granted'){notifEnabled=true;notifBtn.textContent='🔔 reminders on';notifBtn.classList.add('on');toast('Reminders on!');scheduleAllNotifs();}
+  if(p==='granted'){notifEnabled=true;document.getElementById('notif-btn').textContent='🔔 reminders on';document.getElementById('notif-btn').classList.add('on');toast('Reminders on!');tasks.forEach(t=>{if(!t.done)scheduleTaskNotif(t);});}
   else toast('Permission denied — check browser settings');
 };
+
 function scheduleTaskNotif(task){
-  if(!task.due) return;
+  if(!task.due)return;
   const setting=task.notif||'none';
-  if(setting==='none'&&!notifEnabled) return;
+  if(setting==='none'&&!notifEnabled)return;
   const offsets={'due':0,'day-before':1,'week-before':7};
-  const daysOffset=offsets[setting]||(notifEnabled?0:null);
-  if(daysOffset===null) return;
-  const due=new Date(task.due);due.setHours(9,0,0,0);
-  const notify=new Date(due);notify.setDate(notify.getDate()-daysOffset);
+  const daysOffset=offsets[setting]!=null?offsets[setting]:(notifEnabled?0:null);
+  if(daysOffset===null)return;
+  const notify=new Date(task.due);notify.setHours(9,0,0,0);notify.setDate(notify.getDate()-daysOffset);
   const ms=notify-Date.now();
-  if(ms>0) setTimeout(()=>new Notification((daysOffset>0?`Due in ${daysOffset} day${daysOffset>1?'s':''}: `:'Due today: ')+task.text,{body:'Voice To Do',icon:''}),ms);
+  if(ms>0)setTimeout(()=>new Notification((daysOffset>0?`Due in ${daysOffset} day${daysOffset>1?'s':''}: `:'Due today: ')+task.text,{body:'Voice To Do',icon:''}),ms);
 }
-function scheduleNotif(task){scheduleTaskNotif(task);}
-function scheduleAllNotifs(){tasks.forEach(t=>{if(!t.done)scheduleTaskNotif(t);});}
 
 // ── SEARCH ────────────────────────────────────────────
 document.getElementById('search-toggle').onclick=()=>{
@@ -944,52 +839,24 @@ document.getElementById('task-input').onkeydown=e=>{if(e.key==='Enter')addTask(e
 document.getElementById('clear-done-btn').onclick=clearDone;
 
 // ── EXPORT ────────────────────────────────────────────
-const modal=document.getElementById('export-modal');
-document.getElementById('export-btn').onclick=()=>modal.classList.add('open');
-document.getElementById('modal-close').onclick=()=>modal.classList.remove('open');
-modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});
+const exportModal=document.getElementById('export-modal');
+document.getElementById('export-btn').onclick=()=>exportModal.classList.add('open');
+document.getElementById('modal-close').onclick=()=>exportModal.classList.remove('open');
+exportModal.addEventListener('click',e=>{if(e.target===exportModal)exportModal.classList.remove('open');});
 
 function visibleTasks(){return tasks.filter(t=>filter==='done'?t.done:filter==='open'?!t.done:filter==='urgent'?t.priority==='urgent':true);}
 function toPlainText(){return visibleTasks().map(t=>`[${t.done?'x':' '}] ${t.text}${t.priority!=='normal'?' ['+t.priority+']':''}${t.due?' (due '+t.due+')':''}`).join('\n');}
 function toMarkdown(){return visibleTasks().map(t=>`- [${t.done?'x':' '}] ${t.text}${t.priority==='urgent'?' 🔴':''}${t.due?' 📅 '+t.due:''}`).join('\n');}
 
-document.getElementById('export-copy').onclick=()=>{navigator.clipboard.writeText(toPlainText()).then(()=>toast('Copied!')).catch(()=>toast('Copy failed'));modal.classList.remove('open');};
-document.getElementById('export-share').onclick=()=>{if(navigator.share)navigator.share({title:'My To Do List',text:toPlainText()}).catch(()=>{});else{navigator.clipboard.writeText(toPlainText());toast('Copied — share not available here');}modal.classList.remove('open');};
-document.getElementById('export-markdown').onclick=()=>{navigator.clipboard.writeText(toMarkdown()).then(()=>toast('Markdown copied!')).catch(()=>toast('Copy failed'));modal.classList.remove('open');};
-document.getElementById('export-json').onclick=()=>{const b=new Blob([JSON.stringify(tasks,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='voice-todo-backup.json';a.click();modal.classList.remove('open');};
+document.getElementById('export-copy').onclick=()=>{navigator.clipboard.writeText(toPlainText()).then(()=>toast('Copied!')).catch(()=>toast('Copy failed'));exportModal.classList.remove('open');};
+document.getElementById('export-share').onclick=()=>{if(navigator.share)navigator.share({title:'My To Do List',text:toPlainText()}).catch(()=>{});else{navigator.clipboard.writeText(toPlainText());toast('Copied — share not available here');}exportModal.classList.remove('open');};
+document.getElementById('export-markdown').onclick=()=>{navigator.clipboard.writeText(toMarkdown()).then(()=>toast('Markdown copied!')).catch(()=>toast('Copy failed'));exportModal.classList.remove('open');};
+document.getElementById('export-json').onclick=()=>{const b=new Blob([JSON.stringify(tasks,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='voice-todo-backup.json';a.click();exportModal.classList.remove('open');};
 
-const corrModal=document.getElementById('corrections-modal');
-
-function openCorrectionsModal(){
-  modal.classList.remove('open');
-  const keys=Object.keys(corrections);
-  const list=document.getElementById('corrections-list');
-  if(keys.length===0){
-    list.innerHTML='<span style="color:var(--text3)">No corrections learned yet.<br/>Add tasks by voice, edit them to fix mistakes, and the app will remember.</span>';
-  } else {
-    list.innerHTML=keys.map(k=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--red);text-decoration:line-through">${k}</span><span style="color:var(--text3);font-size:11px;margin:0 10px">→</span><span style="color:var(--green)">${corrections[k]}</span><button onclick="deleteCorrection('${k}')" style="background:transparent;border:none;color:var(--text3);cursor:pointer;font-size:14px;padding:0 4px">×</button></div>`).join('');
-  }
-  corrModal.classList.add('open');
-}
-function closeCorrectionsModal(){corrModal.classList.remove('open');}
-
-document.getElementById('view-corrections').onclick=openCorrectionsModal;
-document.getElementById('corrections-close').onclick=closeCorrectionsModal;
-corrModal.addEventListener('click',e=>{if(e.target===corrModal)closeCorrectionsModal();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCorrectionsModal();closeDetail();modal.classList.remove('open');}});
-
-document.getElementById('clear-corrections-btn').onclick=()=>{
-  corrections={};saveCorrections();
-  document.getElementById('corrections-list').innerHTML='<span style="color:var(--text3)">All corrections cleared.</span>';
-  toast('Speech memory cleared');
-};
-function deleteCorrection(key){
-  delete corrections[key];saveCorrections();
-  openCorrectionsModal(); // refresh without re-triggering click chain
-}
-
-// ── TOAST ─────────────────────────────────────────────
-function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('show'),2400);}
+// ── ESCAPE KEY ────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeDetail();exportModal.classList.remove('open');}
+});
 
 load();
 </script>
