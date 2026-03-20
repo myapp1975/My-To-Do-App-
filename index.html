@@ -677,10 +677,10 @@ function openDetail(id){
 }
 function closeDetail(){
   document.getElementById('detail-overlay').classList.remove('open');
+  document.getElementById('detail-save').textContent='Save';
+  document.getElementById('detail-save').disabled=false;
   detailId=null;
-  // wait until any in-flight save completes before syncing
-  const waitAndFetch=()=>{ if(pendingSave){setTimeout(waitAndFetch,300);}else{setTimeout(()=>dbFetch(),500);} };
-  waitAndFetch();
+  // no dbFetch here — local state is already correct after saving
 }
 
 document.querySelectorAll('.pri-opt').forEach(btn=>{btn.onclick=()=>{detailPri=btn.dataset.pri;document.querySelectorAll('.pri-opt').forEach(b=>b.className='pri-opt');btn.classList.add('sel-'+detailPri);};});
@@ -711,9 +711,15 @@ document.getElementById('detail-save').onclick=async()=>{
   const newDue=document.getElementById('d-due').value||null;
   if(newText)t.text=newText;
   t.priority=detailPri;t.due=newDue;t.category=detailCat||null;t.notif=detailNotif;
-  render();closeDetail();
+  // update local state and save button immediately
+  render();
+  document.getElementById('detail-save').textContent='Saving…';
+  document.getElementById('detail-save').disabled=true;
+  // wait for write to complete BEFORE closing — prevents sync race
   await dbUpdate(detailId,{text:t.text,priority:t.priority,due:t.due,category:t.category,notif:t.notif});
-  toast('Task updated');scheduleTaskNotif(t);
+  closeDetail();
+  toast('Task updated');
+  scheduleTaskNotif(t);
 };
 document.getElementById('detail-delete').onclick=()=>{
   const t=tasks.find(t=>t.id===detailId);if(!t)return;
